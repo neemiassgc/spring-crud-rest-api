@@ -1,0 +1,144 @@
+* {
+    font-family: "Cambria", "Cochin", "Georgia", "Times";
+    font-size: 100%;
+}
+
+/* Header */
+#header-title {
+    color: white;
+    text-align: center;
+    font-size: 3em;
+}
+
+
+/* Page struts */
+body {
+    background-color: #404246;
+    margin: 0;
+}
+
+main {
+    margin-top: 30px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.left-side {
+    border-right: 1px solid grey;
+    width: 65%;
+    float: left;
+    overflow-x: auto;
+}
+
+.right-side {
+    width: 30%;
+    float: right;
+    position: fixed;
+    right: 0;
+}
+
+.left-side, .right-side {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+
+/* Table of data */
+table {
+    width: 100%;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+th {
+    border-top: 7px double black;
+    border-bottom: 7px double black;
+}
+
+th, tr, td {
+    padding: 10px;
+}
+
+.table-row:hover {
+    box-shadow: 1px 1px 15px black;
+    cursor: text;
+}
+
+
+/* behavior of icons */
+.icons {
+    padding: 5px;
+}
+
+i {
+    font-size: 1.5em;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+.edit-button-icon:hover {
+    color: orange;
+}
+
+.delete-button-icon:hover {
+    color: red;
+}
+
+/* form */
+#form-container {
+    width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px black;
+}
+
+.input-box {
+    margin-top: 15px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+input {
+    margin-top: 5px;
+    width: 90%;
+    background-color: #404246;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+}
+
+input:focus {
+    border-bottom-color: red;
+}
+
+input::placeholder, label {
+    color: white;
+}
+
+/* behavior of the action button */
+#main-button {
+    margin: 0 auto;
+    width: 90%;
+    word-spacing: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: seagreen;
+    font-size: 1.2em;
+    border: 1px solid white;
+}
+
+#main-button:hover {
+    cursor: pointer;
+}
+
+#main-button:active {
+    background-color: #404246;
+    color: white;
+    cursor: default;
+}
