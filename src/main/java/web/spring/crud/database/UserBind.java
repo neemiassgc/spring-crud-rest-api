@@ -52,7 +52,7 @@ public class UserBind implements BindAdapter {
 
     @Override
     public List<User> getAllUsers() {
-        sql = "SELECT * FROM users;";
+        sql = "SELECT * FROM users ORDER BY id ASC;";
         List<User> listOutput = new ArrayList<>();
         List<Map<String, Object>> mapList = this.jdbcTemplate.queryForList(sql);
 
