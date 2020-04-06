@@ -1,4 +1,4 @@
-const URL = "http://"+window.location.host;
+const URL = "https://"+window.location.host;
 
 function makeRequest(invokation) {
      if(invokation.readyState === XMLHttpRequest.DONE) {
