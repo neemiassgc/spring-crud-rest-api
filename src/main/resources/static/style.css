@@ -17,32 +17,6 @@ body {
     margin: 0;
 }
 
-main {
-    margin-top: 30px;
-    width: fit-content;
-    height: fit-content;
-}
-
-.left-side {
-    border-right: 1px solid grey;
-    width: 65%;
-    float: left;
-    overflow-x: auto;
-}
-
-.right-side {
-    width: 30%;
-    float: right;
-    position: fixed;
-    right: 0;
-}
-
-.left-side, .right-side {
-    box-sizing: border-box;
-    padding: 10px;
-}
-
-
 /* Table of data */
 table {
     width: 100%;
@@ -90,7 +64,7 @@ i:hover {
 
 /* form */
 #form-container {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
     padding: 10px;
@@ -106,7 +80,7 @@ i:hover {
 
 input {
     margin-top: 5px;
-    width: 90%;
+    width: 95%;
     background-color: #404246;
     border: none;
     border-bottom: 2px solid white;

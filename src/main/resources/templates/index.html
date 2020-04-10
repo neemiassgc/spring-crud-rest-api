@@ -2,80 +2,220 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <title>Form registration made with Spring</title>
+
+        <!-- Bootstrap css -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- owner css -->
         <link rel="stylesheet" href="./style.css"/>
     </head>
 
     <body>
         <header class="header">
             <h1 id="header-title">Welcome to home page</h1>
+            <hr/>
         </header>
-        <main>
-             <!-- begin form -->
-             <div class="base-block  right-side">
-                <div id="form-container">
-                    <div class="input-box">
-                        <label for="username">Userame:</label>
-                        <input type="text" id="username" maxlength="30" placeholder="Enter the username" autofocus="autofocus"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" maxlength="20" placeholder="Enter the your phone" list="ddi-list"/>
-                        <datalist id="ddi-list">
-                            <option value="+55"></option>
-                            <option value="+1"></option>
-                            <option value="+81"></option>
-                            <option value="+61"></option>
-                        </datalist>
-                    </div>
-                    <div class="input-box">
-                        <label for="email">Email:</label>
-                        <input type="text" id="email" maxlength="50" placeholder="foo@example.com"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="country">Country:</label>
-                        <input type="text" id="country" maxlength="20" placeholder="Enter the country"/>
-                    </div>
-                    <div class="input-box">
-                        <button id="main-button">ADD USER</button>
+
+       <div class="container-fluid mt-3">
+            <div class="row justify-content-center">
+
+                <!-- begin form -->
+                <div class="col-md-3 p-3 mb-sm-3">
+                    <div id="form-container">
+                        <div class="input-box">
+                            <label for="username">Userame:</label>
+                            <input type="text" id="username" maxlength="30" placeholder="Enter the username" autofocus="autofocus"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" maxlength="20" placeholder="Enter the your phone" list="ddi-list"/>
+                            <datalist id="ddi-list">
+                                <option value="+55"></option>
+                                <option value="+1"></option>
+                                <option value="+81"></option>
+                                <option value="+61"></option>
+                            </datalist>
+                        </div>
+                        <div class="input-box">
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" maxlength="50" placeholder="foo@example.com"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="country">Country:</label>
+                            <input type="text" id="country" maxlength="20" placeholder="Enter the country"/>
+                        </div>
+                        <div class="input-box">
+                            <button id="main-button">ADD USER</button>
+                        </div>
                     </div>
                 </div>
+                <!-- end form -->
+
+                <div class="col-md-8 p-3 overflow-auto ml-1">
+                    <table cellspacing="20px">
+
+                        <!-- begin titles -->
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Username</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Country</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <!-- end titles-->
+
+                        <tbody id="tbody">
+                            <!-- begin data-->
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <tr class="table-row" th:each="user : ${usersList}">
+                                <td th:text="${user.id}">anyting</td>
+                                <td th:text="${user.username}">anyting</td>
+                                <td th:text="${user.phone}">anyting</td>
+                                <td th:text="${user.email}">anyting</td>
+                                <td th:text="${user.country}">anyting</td>
+                                <td>
+                                    <i class="icons edit-button-icon far fa-edit"></i>
+                                    <i class="icons delete-button-icon fas fa-user-minus"></i>
+                                </td>
+                            </tr>
+                            <!-- end data-->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <!-- end form -->
-            <div class="base-block left-side">
-                <table cellspacing="20px">
-                    <!-- begin titles -->
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Username</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Country</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <!-- end titles-->
-                    <tbody id="tbody">
-                        <!-- begin data-->
-                        <tr class="table-row" th:each="user : ${usersList}">
-                            <td th:text="${user.id}">anyting</td>
-                            <td th:text="${user.username}">anyting</td>
-                            <td th:text="${user.phone}">anyting</td>
-                            <td th:text="${user.email}">anyting</td>
-                            <td th:text="${user.country}">anyting</td>
-                            <td>
-                                <i class="icons edit-button-icon far fa-edit"></i>
-                                <i class="icons delete-button-icon fas fa-user-minus"></i>
-                            </td>
-                        </tr>
-                        <!-- end data-->
-                    </tbody>
-                </table>
-            </div>
-        </main>
+        </div>
         <script src="https://kit.fontawesome.com/498d439b1f.js" crossorigin="anonymous"></script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <!-- owner Javascript -->
         <script src="./js/validation.js"></script>
         <script src="./js/script.js"></script>
         <script src="./js/network.js"></script>
