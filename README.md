@@ -5,6 +5,7 @@ Available in **https://userregistrationcrud.herokuapp.com/**
 
 Technologies used were:
 * Html, Css and Js
+* Font Awesome
 * Bootstrap 4
   * Grid system
 * Spring Framework
