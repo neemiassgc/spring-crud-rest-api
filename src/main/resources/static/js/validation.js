@@ -38,7 +38,7 @@ function isCountryValid() {
 
 function validationAnimation() {
     let len = ALL_INPUTS.length;
-    let formContainer = document.getElementById("form-container");
+    let formContainer = document.querySelector("#form-container");
     let validadeInputs = [isUsernameValid, isPhoneValid, isEmailValid, isCountryValid];
 
     for(let i = 0; i < len; i++) {

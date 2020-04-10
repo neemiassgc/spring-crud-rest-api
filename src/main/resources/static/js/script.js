@@ -1,5 +1,5 @@
 const DATA_ROWS = document.querySelectorAll(".table-row");
-const MAIN_BUTTON = document.getElementById("main-button");
+const MAIN_BUTTON = document.querySelector("#main-button");
 
 let userId = null;
 
@@ -9,7 +9,7 @@ function clickEditButtonIcon() {
 
     for(let i = 0; i < len; i++) {
         editButtonIconList[i].onclick = () => {
-            let tdElements = DATA_ROWS[i].getElementsByTagName("td");
+            let tdElements = DATA_ROWS[i].querySelectorAll("td");
 
             for(let j = 0; j < 4; j++) {
                 ALL_INPUTS[j].value = tdElements[j + 1].innerHTML;
@@ -30,14 +30,14 @@ function clickDeleteButtonIcon() {
     for(let i = 0; i < len; i++) {
         deleteButtonIconList[i].onclick = () => {
             // delete user
-            deleteUser("id="+DATA_ROWS[i].getElementsByTagName("td")[0].innerHTML);
+            deleteUser("id="+DATA_ROWS[i].querySelectorAll("td")[0].innerHTML);
         };
     }
 }
 
 
 function mainButtonClick() {
-    let formContainer = document.getElementById("form-container");
+    let formContainer = document.querySelector("#form-container");
 
     // action of add user
     const addUserAction = () => {
@@ -46,7 +46,7 @@ function mainButtonClick() {
                 id: (
                     parseInt(
                         DATA_ROWS[DATA_ROWS.length - 1]
-                        .getElementsByTagName("td")[0].innerHTML
+                        .querySelectorAll("td")[0].innerHTML
                     ) + 1
                 ),
                 username: ALL_INPUTS[0].value,
@@ -80,7 +80,7 @@ function mainButtonClick() {
         formContainer.style.boxShadow = "1px 1px 15px red";
     };
 
-    document.getElementById("main-button").onclick = () => {
+    MAIN_BUTTON.onclick = () => {
 
         // add user
         if(MAIN_BUTTON.innerHTML === "ADD USER") {
