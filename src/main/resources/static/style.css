@@ -13,8 +13,7 @@
 
 /* Page struts */
 body {
-    background-color: #404246;
-    margin: 0;
+    background-image: linear-gradient(to right, #1B2631, #212F3C);
 }
 
 /* Table of data */
@@ -42,15 +41,7 @@ th, tr, td {
 
 
 /* behavior of icons */
-.icons {
-    padding: 5px;
-}
-
-i {
-    font-size: 1.5em;
-}
-
-i:hover {
+.icons:hover {
     cursor: pointer;
 }
 
@@ -81,7 +72,7 @@ i:hover {
 input {
     margin-top: 5px;
     width: 95%;
-    background-color: #404246;
+    background-color: inherit;
     border: none;
     border-bottom: 2px solid white;
     color: white;

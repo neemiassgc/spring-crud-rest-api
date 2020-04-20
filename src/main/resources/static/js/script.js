@@ -11,6 +11,7 @@ function clickEditButtonIcon() {
         editButtonIconList[i].onclick = () => {
             let tdElements = DATA_ROWS[i].querySelectorAll("td");
 
+            console.log("edit was called");
             for(let j = 0; j < 4; j++) {
                 ALL_INPUTS[j].value = tdElements[j + 1].innerHTML;
             }
@@ -29,6 +30,7 @@ function clickDeleteButtonIcon() {
 
     for(let i = 0; i < len; i++) {
         deleteButtonIconList[i].onclick = () => {
+            console.log("delete was called");
             // delete user
             deleteUser("id="+DATA_ROWS[i].querySelectorAll("td")[0].innerHTML);
         };
