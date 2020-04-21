@@ -10,5 +10,6 @@ Technologies used were:
   * Grid system
 * Spring Framework
   * Spring Boot
+  * Spring MVC
   * Spring Data JDBC
   * Thymeleaf engine

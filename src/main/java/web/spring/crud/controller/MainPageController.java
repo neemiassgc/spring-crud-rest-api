@@ -40,6 +40,7 @@ public final class MainPageController implements RestAdapter {
             return ResponseEntity
                     .ok()
                     .header("Content-Type", "text/plain")
+                    .header("Cache-Control", "no-cache")
                     .body(responseMsg);
         }
     }
@@ -69,6 +70,7 @@ public final class MainPageController implements RestAdapter {
             return ResponseEntity
                     .ok()
                     .header("Content-Type", "text/plain")
+                    .header("Cache-Control", "no-cache")
                     .body(responseMsg);
         }
     }
@@ -94,6 +96,7 @@ public final class MainPageController implements RestAdapter {
             return ResponseEntity
                     .ok()
                     .header("Content-Type", "text/plain")
+                    .header("Cache-Control", "no-cache")
                     .body(responseMsg);
         }
     }

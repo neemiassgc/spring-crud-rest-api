@@ -84,8 +84,12 @@
                                 <td th:text="${user.email}">anyting</td>
                                 <td th:text="${user.country}">anyting</td>
                                 <td>
-                                    <i class="icons edit-button-icon far fa-edit fa-lg"></i>
-                                    <i class="icons delete-button-icon fas fa-user-minus fa-lg"></i>
+                                    <button class="edit-button" title="edit user">
+                                        <i class="far fa-edit fa-lg"></i>
+                                    </button>
+                                    <button class="delete-button" title="delete user">
+                                        <i class="fas fa-user-minus fa-lg"></i>
+                                    </button>
                                 </td>
                             </tr>
                             <!-- end data-->

@@ -4,14 +4,13 @@ const MAIN_BUTTON = document.querySelector("#main-button");
 let userId = null;
 
 function clickEditButtonIcon() {
-    let editButtonIconList = document.querySelectorAll(".edit-button-icon");
+    let editButtonIconList = document.querySelectorAll(".edit-button");
     let len = editButtonIconList.length;
 
     for(let i = 0; i < len; i++) {
         editButtonIconList[i].onclick = () => {
             let tdElements = DATA_ROWS[i].querySelectorAll("td");
 
-            console.log("edit was called");
             for(let j = 0; j < 4; j++) {
                 ALL_INPUTS[j].value = tdElements[j + 1].innerHTML;
             }
@@ -25,12 +24,11 @@ function clickEditButtonIcon() {
 }
 
 function clickDeleteButtonIcon() {
-    let deleteButtonIconList = document.querySelectorAll(".delete-button-icon");
+    let deleteButtonIconList = document.querySelectorAll(".delete-button");
     let len = deleteButtonIconList.length;
 
     for(let i = 0; i < len; i++) {
         deleteButtonIconList[i].onclick = () => {
-            console.log("delete was called");
             // delete user
             deleteUser("id="+DATA_ROWS[i].querySelectorAll("td")[0].innerHTML);
         };

@@ -40,17 +40,27 @@ th, tr, td {
 }
 
 
-/* behavior of icons */
-.icons:hover {
-    cursor: pointer;
-}
-
-.edit-button-icon:hover {
+/* behavior of icons button */
+.edit-button:hover {
     color: orange;
 }
 
-.delete-button-icon:hover {
+.delete-button:hover {
     color: red;
+}
+
+.edit-button:hover, .delete-button:hover {
+    cursor: pointer;
+}
+
+.edit-button:active, .delete-button:active {
+    cursor: default;
+}
+
+.edit-button, .delete-button {
+    background-color: inherit;
+    border: none;
+    color: white;
 }
 
 /* form */
