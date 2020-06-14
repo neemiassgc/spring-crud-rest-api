@@ -22,7 +22,11 @@ public final class MainController implements RestAdapter {
     @Override
     @GetMapping(path = "/getUsers")
     public ResponseEntity<List<User>> getUsers() {
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(this.dataBind.getAllUsers());
+        return ResponseEntity
+            .ok()
+            .header("Access-Control-Allow-Origin", "*")
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(this.dataBind.getAllUsers());
     }
 
     @Override
@@ -69,7 +73,11 @@ public final class MainController implements RestAdapter {
             }
         }
 
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(fallback);
+        return ResponseEntity
+            .ok()
+            .header("Access-Control-Allow-Origin", "*")
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(fallback);
     }
 
     @Override
@@ -142,7 +150,11 @@ public final class MainController implements RestAdapter {
             }
         }
 
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(fallback);
+        return ResponseEntity
+            .ok()
+            .header("Access-Control-Allow-Origin", "*")
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(fallback);
     }
 
     @Override
@@ -155,7 +167,11 @@ public final class MainController implements RestAdapter {
 
         fallback.setMessage("User has been deleted");
 
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(fallback);
+        return ResponseEntity
+            .ok()
+            .header("Access-Control-Allow-Origin", "*")
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(fallback);
     }
 
     @Override
@@ -166,6 +182,10 @@ public final class MainController implements RestAdapter {
 
         fallback.setMessage("All users have been deleted");
 
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(fallback);
+        return ResponseEntity
+            .ok()
+            .header("Access-Control-Allow-Origin", "*")
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(fallback);
     }
 }
