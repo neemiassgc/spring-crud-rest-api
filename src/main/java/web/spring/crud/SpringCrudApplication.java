@@ -4,13 +4,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import web.spring.crud.controller.MainPageController;
-import web.spring.crud.database.UserBind;
+import web.spring.crud.controller.MainController;
+import web.spring.crud.database.DataBind;
 
 @Configuration
 @EnableAutoConfiguration
 @Import(value = {
-		UserBind.class, MainPageController.class
+		DataBind.class, MainController.class
 })
 public class SpringCrudApplication {
 
