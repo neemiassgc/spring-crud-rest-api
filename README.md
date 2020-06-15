@@ -1,15 +1,2 @@
-# Spring-CRUD
-A **C.R.U.D** web application made with **Spring Framework** and **Postgresql** or **Mysql** as database and deployed with **Heroku**
-
-Available in **https://userregistrationcrud.herokuapp.com/**
-
-Technologies used were:
-* Html, Css and Js
-* Font Awesome
-* Bootstrap 4
-  * Grid system
-* Spring Framework
-  * Spring Boot
-  * Spring MVC
-  * Spring Data JDBC
-  * Thymeleaf engine
+# spring-crud-rest-api
+A CRUD REST API made with **Spring Boot** and **Postgresql** as database and deployed with **Heroku**
