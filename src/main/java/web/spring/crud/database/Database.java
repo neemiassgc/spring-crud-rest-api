@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Vector;
 
 @Repository
-public class DataBind implements BindAdapter {
+public class Database implements DatabaseAdapter {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

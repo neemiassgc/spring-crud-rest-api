@@ -1,13 +1,17 @@
-package web.spring.crud.entity;
+package web.spring.crud.service;
 
 public final class Fallback {
 
     private boolean success;
     private String message;
 
+    public Fallback(boolean success, String message) {
+        this.success = success;
+        this.message = message;
+    }
+
     public Fallback() {
-        this.success = true;
-        this.message = "";
+        this(false, "");
     }
 
     public boolean isSuccess() {

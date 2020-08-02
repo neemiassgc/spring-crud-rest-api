@@ -6,19 +6,20 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import web.spring.crud.database.DataBind;
-import web.spring.crud.entity.Fallback;
+import web.spring.crud.database.Database;
+import web.spring.crud.service.Fallback;
 import web.spring.crud.entity.User;
+import web.spring.crud.service.Validator;
 
 import java.util.List;
 import java.util.Map;
 
 @Controller
-@CrossOrigin("https://sevlasnog.github.io")
+@CrossOrigin("https://sevlasnog.github.io/spring-crud")
 public final class MainController implements RestAdapter {
 
     @Autowired
-    private DataBind dataBind;
+    private Database database;
 
     @Override
     @GetMapping(path = "/getUsers")
@@ -26,43 +27,37 @@ public final class MainController implements RestAdapter {
         return ResponseEntity
             .ok()
             .contentType(MediaType.APPLICATION_JSON)
-            .body(this.dataBind.getAllUsers());
+            .body(this.database.getAllUsers());
     }
 
     @Override
     @ResponseBody
     @PostMapping(path = "/insertUser", consumes = "application/json")
     public ResponseEntity<Fallback> insert(@RequestBody Map<String, Object> req) {
-        Fallback fallback = new Fallback();
+        Fallback fallback;
 
         try {
+            if(req.size() < 5) throw new NullPointerException();
+
             String name = (String) req.get("name");
             String surname = (String) req.get("surname");
             String phone = (String) req.get("phone");
             String email = (String) req.get("email");
             String country = (String) req.get("country");
 
-            if(name.length() > 50 || name.length() < 3 || surname.length() > 50 ||
-                surname.length() < 3 || phone.length() < 12 || phone.length() > 20 ||
-                email.length() > 100 || email.length() < 10 || country.length() > 30 ||
-                country.length() < 3) {
-                fallback.setSuccess(false);
-                fallback.setMessage("User doesn't create");
+            User user = new User();
+            user.setName(name);
+            user.setSurname(surname);
+            user.setPhone(phone);
+            user.setCountry(country);
+            user.setEmail(email);
 
-            }
-            else {
-                User user = new User();
-                user.setName(name);
-                user.setSurname(surname);
-                user.setPhone(phone);
-                user.setCountry(country);
-                user.setEmail(email);
+            fallback = Validator.isUserValid(user);
 
-                this.dataBind.createUser(user);
-                fallback.setMessage("User has been created");
-            }
+            if(fallback.isSuccess()) this.database.createUser(user);
         }
         catch(Exception exception) {
+            fallback = new Fallback();
             fallback.setSuccess(false);
             
             if(exception instanceof NullPointerException) {
@@ -97,49 +92,17 @@ public final class MainController implements RestAdapter {
         String email = req.containsKey("email") ? (String)req.get("email") : null;
         String country = req.containsKey("country") ? (String)req.get("country") : null;
 
-        if(name != null) {
-            if(name.length() > 50 || name.length() < 3) {
-                fallback.setSuccess(false);
-                fallback.setMessage("User doesn't updated. Name isn't valid");
-            }
-        }
-        if(surname != null) {
-            if(surname.length() > 50 || surname.length() < 3) {
-                fallback.setSuccess(false);
-                fallback.setMessage("User doesn't updated. Surname isn't valid");
-            }
-        }
-        if(phone != null) {
-            if(phone.length() < 12 || phone.length() > 20) {
-                fallback.setSuccess(false);
-                fallback.setMessage("User doesn't updated. Phone isn't valid");
-            }
-        }
-        if(email != null) {
-            if(email.length() > 100 || email.length() < 10) {
-                fallback.setSuccess(false);
-                fallback.setMessage("User doesn't updated. Email isn't valid");
-            }
-        }
-        if(country != null) {
-            if(country.length() > 30 || country.length() < 3) {
-                fallback.setSuccess(false);
-                fallback.setMessage("User doesn't updated. Country isn't valid");
-            }
-        }
+        User user = new User();
+        user.setId((Integer) req.get("id"));
+        user.setName(name);
+        user.setSurname(surname);
+        user.setPhone(phone);
+        user.setCountry(country);
+        user.setEmail(email);
 
-        if(fallback.isSuccess()) {
+        if((fallback = Validator.isUserValid(user)).isSuccess()) {
             try {
-                User user = new User();
-                user.setId((Integer)req.get("id"));
-                user.setName(name);
-                user.setSurname(surname);
-                user.setPhone(phone);
-                user.setCountry(country);
-                user.setEmail(email);
-
-                this.dataBind.updateUser(user);
-                fallback.setMessage("User has been updated");
+                this.database.updateUser(user);
             }
             catch(Exception exception) {
                 fallback.setSuccess(false);
@@ -161,7 +124,7 @@ public final class MainController implements RestAdapter {
     public ResponseEntity<Fallback> delete(@RequestParam(value = "id", defaultValue = "-1") int id) {
         Fallback fallback = new Fallback();
 
-        this.dataBind.deleteUser(id);
+        this.database.deleteUser(id);
 
         fallback.setMessage("User has been deleted");
 
@@ -175,7 +138,7 @@ public final class MainController implements RestAdapter {
     @DeleteMapping(path = "/deleteAllUsers")
     public ResponseEntity<Fallback> deleteAll() {
         Fallback fallback = new Fallback();
-        this.dataBind.deleteAllUsers();
+        this.database.deleteAllUsers();
 
         fallback.setMessage("All users have been deleted");
 

@@ -1,7 +1,7 @@
 package web.spring.crud.controller;
 
 import org.springframework.http.ResponseEntity;
-import web.spring.crud.entity.Fallback;
+import web.spring.crud.service.Fallback;
 import web.spring.crud.entity.User;
 
 import java.util.List;

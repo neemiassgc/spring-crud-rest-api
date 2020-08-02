@@ -4,7 +4,7 @@ import web.spring.crud.entity.User;
 
 import java.util.List;
 
-interface BindAdapter {
+interface DatabaseAdapter {
 
      void createUser(User user);
 
