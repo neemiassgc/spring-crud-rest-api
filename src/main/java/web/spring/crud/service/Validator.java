@@ -22,7 +22,7 @@ public final class Validator {
         else if(user.getCountry().length() < 3) msg = "User's country is too sort";
         else if(!user.getPhone().matches("^\\+\\d{11,}"))
             msg = "User's phone is not valid phone number";
-        else if(!user.getEmail().matches("\\w{3,}@\\w{2,}\\.\\[a-zA-Z0-9.]{2,}"))
+        else if(!user.getEmail().matches("\\w{3,}@\\w{2,}\\.[a-zA-Z0-9.]{2,}"))
             msg = "User's email is not valid email";
         else {
             fallback.setSuccess(true);
