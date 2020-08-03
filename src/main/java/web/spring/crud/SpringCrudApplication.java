@@ -6,11 +6,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import web.spring.crud.controller.MainController;
 import web.spring.crud.database.Database;
+import web.spring.crud.database.Validator;
 
 @Configuration
 @EnableAutoConfiguration
 @Import(value = {
-		Database.class, MainController.class
+		Database.class, MainController.class, Validator.class
 })
 public class SpringCrudApplication {
 
