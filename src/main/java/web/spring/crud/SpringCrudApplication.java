@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import web.spring.crud.controller.MainController;
 import web.spring.crud.database.Database;
-import web.spring.crud.database.Validator;
+import web.spring.crud.service.Validator;
 
 @Configuration
 @EnableAutoConfiguration
