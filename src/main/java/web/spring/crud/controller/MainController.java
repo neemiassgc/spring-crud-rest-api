@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@CrossOrigin("https://sevlasnog.github.io")
+@CrossOrigin("*")
 public final class MainController implements RestAdapter {
 
     @Autowired
